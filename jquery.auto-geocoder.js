@@ -38,6 +38,10 @@
           $(options.position).append(element);
         }
 
+	// fixes the issue related to people selecting cached text input
+	$(this).bind('blur.auto-geocoder', function() {
+	  $(this).trigger('auto-geocoder.onKeyUp');
+	});
         $(this).bind('keyup.auto-geocoder', function() {
           $(this).trigger('auto-geocoder.onKeyUp');
         });
